@@ -1,19 +1,20 @@
 "use client";
 
 import { motion } from "framer-motion";
+import type { Variants } from "framer-motion";
 import { ArrowRight, Play, Users, BookOpen, Award, CheckCircle2, Star, Sparkles } from "lucide-react";
 
 export default function Hero() {
-  const fadeUp = {
+  const fadeUp: Variants = {
     hidden: { opacity: 0, y: 30 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.2, 0.65, 0.3, 0.9] } },
   };
 
-  const stagger = {
+  const stagger: Variants = {
     visible: { transition: { staggerChildren: 0.15 } },
   };
 
-  const wordAnimation = {
+  const wordAnimation: Variants = {
     hidden: { opacity: 0, y: 20, filter: "blur(10px)" },
     visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.8, ease: "easeOut" } }
   };
