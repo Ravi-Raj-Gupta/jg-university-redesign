@@ -1,26 +1,33 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  
+  --color-primary: #f97316; /* Orange 500 */
+  --color-primary-dark: #ea580c; /* Orange 600 */
+  --color-primary-light: #fb923c; /* Orange 400 */
+  
+  --color-secondary: #f59e0b; /* Amber 500 */
+  --color-secondary-dark: #d97706; /* Amber 600 */
+  --color-secondary-light: #fbbf24; /* Amber 400 */
+  
+  --color-accent: #ef4444; /* Red 500 */
+  --color-accent-light: #f87171; /* Red 400 */
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer utilities {
+  .glass {
+    @apply bg-white/70 backdrop-blur-md border border-white/20 shadow-xl;
+  }
+  .glass-dark {
+    @apply bg-slate-900/70 backdrop-blur-md border border-slate-700/50 shadow-xl;
+  }
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-secondary to-accent;
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  @apply bg-slate-50;
 }
